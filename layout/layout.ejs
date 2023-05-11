@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>" data-theme="light">
+    <!-- 网页头部，包括网页名称等，显示在浏览器的标签页上 -->
+    <head>
+        <!-- {cache: true} 表示使用缓存，可以提高页面的加载速度 -->
+        <%- partial('partial/head', {cache: true}) %>
+    </head>
+
+    <!-- 页面的主体部分，显示出来的页面 -->
+    <body id="body">
+        <!-- 根据主题配置文件中的 loading.fullpage 值来决定是否显示全屏加载动画 -->
+        <% if(theme.loading.fullpage){ %>
+            <%- partial('partial/loading', {cache: true}) %>
+        <% } %>
+
+        <!-- 控制器和侧边栏 -->
+        <%- partial('partial/console', {cache: true}) %>
+        <%- partial('partial/sidebar', {cache: true}) %>
+
+        <% if(page.type !== '404'){ %>
+            <!-- body-wrap 用于包含文章主体或页面主体，根据当前页面类型的不同，它的类名也不同 -->
+            <div class="<%= is_post() ? 'post' : 'page' %>" id="body-wrap">
+                <!-- 页面的头部 -->
+                <%- partial('partial/header') %>
+                <!-- 页面的主体 -->
+                <%- body %>
+                <!-- 页脚 -->
+                <footer id="footer">
+                    <%- partial('partial/footer', {cache: true}) %>
+                </footer>
+            </div>
+        <% }else{ %>
+            <!-- 404 页面没有头部和页脚 -->
+            <div class="error" id="body-wrap">
+                <%- body %>
+            </div>
+        <% } %> 
+        
+        <%- partial('partial/body', {cache: true}) %>
+        <%- partial('partial/compoment/third-party/search/index', {cache: true}) %>
+        <%- partial('partial/compoment/third-party/music', {cache: true}) %>    
+    </body>
+</html>

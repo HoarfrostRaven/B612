@@ -1,0 +1,53 @@
+<div id="error-wrap">
+    <div class="error-content">
+        <!-- 设置图片 -->
+        <div class="error-img" style="background-image: url('<%= theme.errorpage.img %>')"></div>
+
+        <div class="error-info">
+
+            <!-- 标题 -->
+            <h1 class="error_title"><%= theme.errorpage.title %></h1>
+
+            <div class="error_subtitle">
+                <!-- 副标题 -->
+                <%= theme.errorpage.subtitle %>
+            </div>
+
+            <!-- 按钮 -->
+            <a class="button--animated" href="/">
+                <i class="<%= theme.errorpage.buttonIcon %>"></i>
+                <%= __('errorPage.backToHomePage') %>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<% if(theme.errorpage.recommendList){ %>
+    <div class="aside-list">
+        <div class="aside-list-group">
+
+            <!-- 最多显示 5 篇推荐文章 -->
+            <% for (const [index, post] of site.posts.sort('-date').data.entries()){ %>
+                <% if(index >= 5)break; %>
+
+                <div class="aside-list-item">
+                    <!-- 缩略图 -->
+                    <a class="thumbnail" href="<%= url_for(post.path) %>" title="<%= post.title %>">
+                        <img src="<%= post.cover %>" alt="<%= post.title %>">
+                    </a>
+
+                    <!-- 标题 -->
+                    <div class="content">
+                        <a class="title" href="<%= url_for(post.path) %>" title="<%= post.title %>">
+                            <%= post.title %>
+                        </a>
+                    </div>
+                </div>
+
+            <% } %>
+
+        </div>
+    </div>
+<% } %>

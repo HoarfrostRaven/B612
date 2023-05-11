@@ -1,0 +1,17 @@
+<div class="category-bar-items" id="category-bar-items">
+
+    <!-- <div class="category-bar-item <%= is_home() ? 'select' : '' %>" id="category-bar-home">
+        <a href="/"><%= __('categoryBar.home') %></a>
+    </div> -->
+
+    <% for(const item of site.categories.data){ %>
+        <div class="category-bar-item <%= select ? (select === item.name ? 'select' : '') : '' %>">
+            <a href="<%= url_for(item.path) %>"><%= item.name %></a>
+        </div>
+    <% } %>
+
+    <div class="category-bar-item <%= select ? (select === '' ? 'select' : '') : '' %>">
+        <a href="/categories/"><%= __('categoryBar.more') %></a>
+    </div>
+
+</div>

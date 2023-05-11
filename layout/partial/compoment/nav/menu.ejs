@@ -1,0 +1,30 @@
+<div class="menus_items">
+    <!-- 循环遍历 theme.nav.menu 对象 -->
+    <% for(const x in theme.nav.menu){ %>
+        <!-- 依次生成每个菜单项 -->
+        <div class="menus_item">
+            <!-- 如果 url 字段填写 false 则开启二级菜单 -->
+            <% if(!theme.nav.menu[x].url){ %>
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> <%= x %></span>
+                </a>
+                <!-- 二级菜单 -->
+                <ul class="menus_item_child">
+                    <% for(y in theme.nav.menu[x].child){ %>
+                        <li>
+                            <a class="site-page child" href="<%- url_for(theme.nav.menu[x].child[y].url) %>">
+                                <i class="<%- theme.nav.menu[x].child[y].icon %>"></i>
+                                <span> <%= y %></span>
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            <!-- 如果填写 url 链接，可以跳转到其他地方，并关闭二级菜单 -->
+            <% } else { %>
+                <a class="site-page not-child" href="<%- url_for(theme.nav.menu[x].url) %>" rel="external nofollow">
+                    <span> <%= x %></span>
+                </a>
+            <% } %> 
+        </div>
+    <% } %>
+</div>

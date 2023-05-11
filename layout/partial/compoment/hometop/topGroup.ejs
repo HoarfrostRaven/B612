@@ -1,0 +1,59 @@
+<style type="text/css">
+    .topGroup .todayCard::after {
+        box-shadow: 0 -109px 133px -9px <%- theme.hometop.recommendList.color %> inset;
+    }
+
+    .todayCard-title,
+    .todayCard-tips,
+    .topGroup .banner-button {
+        color: #ffffff;
+    }
+
+    .topGroup .todayCard {
+        background: <%- theme.hometop.recommendList.color %>;
+    }
+</style>
+
+<!-- 利用模板语法遍历站点中的文章，并且只展示推荐文章，最多展示前六篇 -->
+<% for (const post of site.posts.data.filter(item => item.recommend === true).slice(0,6)){ %>
+    <div class="recent-post-item">
+        <!-- 文章封面 -->
+        <div class="post_cover left_radius">
+            <a href="<%= url_for(post.path) %>"
+                title="<%= post.title %>">
+                <span class="recent-post-top-text"><%= __('homeTop.rec') %></span>
+                <img class="post_bg"
+                    alt="<%= post.title %>" src="<%= post.cover %>" loading="lazy">
+            </a>
+        </div>
+        <!-- 文章标题 -->
+        <div class="recent-post-info">
+            <a class="article-title" href="<%= url_for(post.path) %>"
+                title="<%= post.title %>"><%= post.title %>
+            </a>
+        </div>
+    </div> 
+<% } %>
+
+<div class="todayCard" id="todayCard" onclick="pjax.loadUrl('<%= theme.hometop.recommendList.url %>')"
+    style="z-index: 1;">
+    <div class="todayCard-info">
+        <!-- 上标题与标题 -->
+        <div class="todayCard-tips"><%= theme.hometop.recommendList.supTitle %></div>
+        <div class="todayCard-title"><%= theme.hometop.recommendList.title %></div>
+    </div>
+    <!-- 图片 -->
+    <% const today = new Date().getDay(); %>
+    <% const imageFolder = theme.hometop.recommendList.imageFolderPath; %>
+    <% const image = imageFolder + today + '.jpg'; %>
+    <div class="todayCard-cover nolazyload"
+        style="background: url('<%= image %>') no-repeat center /cover">
+    </div>
+    <!-- 更多推荐按钮 -->
+    <div class="banner-button-group"><a class="banner-button"
+            onclick="window.event.cancelBubble=true;B612.hideTodayCard();">
+            <i class="fas fa-circle-plus"></i>
+            <span class="banner-button-text"><%= __('homeTop.recommendList') %></span>
+        </a>
+    </div>
+</div>

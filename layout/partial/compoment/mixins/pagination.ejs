@@ -1,0 +1,11 @@
+<nav id="pagination">
+    <div class="pagination">
+        <% const options = {
+            <!-- 定义分页导航中当前页码两侧应该显示的页码数量 -->
+            mid_size: 3,
+            <!-- 定义分页导航中的URL是否需要进行HTML转义，如果为 true，则需要进行转义，否则不需要转义 -->
+            escape: false
+        } %>
+        <%- paginator(options) %>
+    </div>
+</nav>

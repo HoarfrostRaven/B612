@@ -1,0 +1,100 @@
+<!-- 包裹加载动画的 div 标签 -->
+<div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <!-- 背景 -->
+    <div class="loading-bg">
+        <!-- 加载图标 -->
+        <img class="loading-img nolazyload" alt="loading image" src="<%= theme.site.icon %>">
+    </div>
+</div>
+
+<script>
+    const preloader = {
+        // 在页面加载完毕时调用，，将包裹加载动画的 div 标签的 class 属性设置为 "loaded"，从而隐藏加载动画
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        // 在页面开始加载时调用，将 class 属性设置为不含 "loaded"，从而显示加载动画
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        // 将整个页面的 class 属性设置为 "pace-done"，用处未知
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    // 事件监听器
+    // load 事件是当一个页面及其所有依赖资源（如样式表、脚本、图片等）都加载完成后触发的事件，是浏览器自带的事件
+    // pjax 是一种无刷新页面加载技术，通过异步加载局部页面内容，同时保留原有页面的部分元素，以达到更快速的页面切换效果
+    // 当 pjax 开始发送请求时，会触发 pjax: send 事件，表示 pjax 开始工作并开始加载页面
+    // 当 pjax 完成请求，局部页面内容加载成功后，会触发 pjax: complete 事件，表示 pjax 已完成工作并成功加载了局部页面内容
+    // 当页面加载完成时，将会调用 endLoading 方法隐藏加载动画
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    // 当页面开始加载时，将会调用 initLoading 方法显示加载动画
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+
+<!-- 加载动画的样式 -->
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>

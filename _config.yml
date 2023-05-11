@@ -1,0 +1,370 @@
+## Acrylic主题配置文件
+############################################################################################################
+# 为避免主题更新后，配置文件被覆盖，请复制一份此文件到站点根目录下的_config.Acrylic.yml文件中，修改_config.Acrylic.yml文件中的配置
+############################################################################################################
+# 修改此文件前，请仔细阅读官方文档：https://next-docs.acrylic.org.cn/
+############################################################################################################
+
+
+# 站点设置
+site:
+  name:                   # 左上角显示内容
+    class:  text          #i_class/text/img 
+    custom: Home       #自定义内容
+  siteIcon: /img/logo.png # 网页icon
+  icon: /img/logo.png     # 页脚的icon、加载动画默认的icon
+  icp:                       # ICP
+
+# 导航栏
+nav:
+#导航栏左侧
+  left:
+    enable: true #开启左侧应用菜单栏
+    menu: #左侧应用菜单栏内的内容
+      我的: #一级分类
+        博客: #链接名称
+          icon: /img/logo.png #链接图片
+          url: /
+# 导航栏内容
+  menu:
+    Blogs: #一级菜单
+      url: false #是否关闭二级菜单。如果填写url链接可以跳转到其他地方，并关闭二级菜单。如果填写false则开启二级菜单
+      child: #二级菜单
+        Archives: #链接名称
+          url: /archives/
+          icon: fas fa-box-archive #链接图标 使用fontawesome
+        Categories:
+          url: /categories/
+          icon: fas fa-cube
+        Tags:
+          url: /tags/
+          icon: fas fa-tags
+    Says:
+        url: /says #使用一级菜单，关闭二级菜单，点击后跳转到/says
+        child:
+    # 友链:
+    #   url: false
+    #   child:
+    #     友链鱼塘:
+    #       url: /fcircle/
+    #       icon: fas fa-fish-fins
+    #     友情链接:
+    #       url: /links/
+    #       icon: fas fa-user-group
+    #     宝藏博主:
+    #       url: javascript:travelling() # 主题特殊接口，为随机友链
+    #       icon: fas fa-bus
+
+# 导航栏右侧快捷菜单
+  right: # @todo 允许用户自定义
+    travellings: true   # 开往
+    random: true        # 随机前往一个博客
+    console: true       # 控制台
+    darkMode: true      # 控制显示模式的开关
+
+# heo式顶部一大坨
+hometop:
+  bbtime: true
+  banner:
+    enable: true
+    title: Hoarfrost<br>Raven
+    subtitle: 
+    icon:
+      PyTorch:
+        img: /img/icon/PyTorch.png
+        color: '#4082c3'
+      BootStrap:
+        img: /img/icon/BootStrap.png
+        color: '#f29e39'
+      linux:
+        img: /img/icon/linux.png
+        color: '#ffffff'
+      C:
+        img: /img/icon/C.png
+        color: '#eb6840'
+      MySQL:
+        img: /img/icon/MySQL.png
+        color: '#ffffff'
+      C++:
+        img: /img/icon/Cpp.png
+        color: '#57b6e6'
+      Java:
+        img: /img/icon/Java.png
+        color: '#ffffff'
+      AE:
+        img: /img/icon/ae.png
+        color: '#989bf8'
+      # Sketch:
+      #   img: /img/icon/Sketch.png
+      #   color: '#ffffff'
+      # Docker:
+      #   img: /img/icon/docker.png
+      #   color: '#57b6e6'
+      # ps:
+      #   img: /img/icon/ps.png
+      #   color: '#4082c3'
+      # FinalCutPro:
+      #   img: /img/icon/FinalCutPro.png
+      #   color: '#ffffff'
+      Python:
+        img: /img/icon/Python.png
+        color: '#ffffff'
+      # Swift:
+      #   img: /img/icon/Swift.png
+      #   color: '#eb6840'
+      # Principle:
+      #   img: /img/icon/Principle.png
+      #   color: '#8f55ba'
+      # illustrator:
+      #   img: /img/icon/illustrator.png
+      #   color: '#f29e39'
+      CSS3:
+        img: /img/icon/CSS3.png
+        color: '#2c51db'
+      JS:
+        img: /img/icon/JS.png
+        color: '#f7cb4f'
+      Git:
+        img: /img/icon/git.png
+        color: '#df5b40'
+
+  categoryGroup:
+    G1:
+      name: Deep Learning
+      icon: fa-brands fa-python # fas fa-dove
+      url: /categories/Deep-Learning/
+    G2:
+      name: Software Development
+      icon: fa-brands fa-java # fas fa-burn
+      url: /categories/Software-Development/
+    G3:
+      name: Game Design
+      icon: fa-solid fa-gamepad # fas fa-book
+      url: /categories/Game-Design/
+
+  recommendList:
+    supTitle: # 置顶文章
+    title: Hoarfrost Raven
+    url: /
+    imageFolderPath: /img/banner/
+    color: '#006a73'
+
+# 个人卡片
+aside:
+  home: #首页侧边栏
+    noSticky: "about,flip" #不固定的侧边栏，固定在（目录）页面上方
+    Sticky: "newestPost,allInfo" #固定的侧边栏，放在目录下方，随页面滚动而移动
+  post: #文章页侧边栏
+    noSticky: "about"
+    Sticky: "newestPost"
+  page: #页面侧边栏
+    noSticky: "about,flip"
+    Sticky: "newestPost,allInfo"
+
+  card:
+    content: <b>The only way to do great work is to love what you do.</b> If you haven't found it yet, keep looking. Don't settle.<br><div align="right">- Steve Jobs</div><br> #个人介绍卡片文字。您可以使用一些html标签
+    # 这有关于<b>开发</b>、<b>技术</b>相关的问题和看法，还有对于动漫的一些<b>杂评</b>。<br>相信你可以在这里找到对你有用的知识和教程。
+    information:
+      Github:
+        icon: fa-brands fa-github
+        url: https://github.com/HoarfrostRaven
+      Mail:
+        icon: fa-solid fa-envelope
+        url: xianzhi.ye@imt-atlantique.net
+    button:
+      text: About
+      url: /about
+
+  flip:
+    color: '#0099FF'
+    face:
+      title: QQ群
+      desc: 加入官方QQ群与我们交流
+    backface:
+      title: 扫一扫
+      desc: 获取最新信息和帮助
+      img: /img/qqgroup.png
+
+  toc: 
+    post: true #文章页是否显示目录
+    page: false #页面是否显示目录
+
+  # 建站时间
+  siteinfo:
+    postcount: true #文章数量
+    wordcount: true
+    pv: true #访问量统计
+    uv: true #独立访客统计
+    updatetime: false #更新时间
+    runtimeenable: true #运行时间
+    runtime: '2023-05-01 00:00:00' #运行时间起始时间
+
+# 页脚
+footer:
+  information:
+    left:
+      Github:
+        icon: fa-brands fa-github
+        url: https://github.com/HoarfrostRaven
+      Mail:
+        icon: fa-solid fa-envelope
+        url: xianzhi.ye@imt-atlantique.net
+    right:
+      Linkedin:
+        icon: fa-brands fa-linkedin-in
+        url: https://www.linkedin.com/in/xianzhi-ye-853938229/
+      Facebook:
+        icon: fa-brands fa-facebook-f
+        url: https://www.facebook.com/lucas.oraf.9/
+      # 网易云:
+      #   icon: fa-solid fa-music
+      #   url: /
+      # bilibili:
+      #   icon: fa-brands fa-bilibili
+      #   url: /
+
+  group:
+    # 导航:
+    #   文章归档: /archives/ #名称和链接
+    #   文章分类: /categories/
+    #   文章标签: /tags/
+    #   友链: /link/
+    # 服务:
+    #   51la统计: https://51.la/
+    #   百度统计: https://tongji.baidu.com/
+    #   TianliCDN: https://ql.tianli0.top/
+    # Acrylic:
+    #   主题官网: https://acrylic.zhheo.com/
+    #   Github: https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic
+    #   Heo: https://blog.zhheo.com/
+    # 推荐友链:
+    #   Heo: https://blog.zhheo.com/
+    #   Akilar: https://akilar.top
+
+  randomlink: false # 开启页脚随机友链
+
+page:
+  error: true
+  tags: true
+  categories: true
+  default:
+    cover: /img/hello.jpg   
+
+# 文章页默认设置
+post:
+  default:
+    cover: /img/hello.jpg
+    locate: Paris
+    copyright: Original #原创/转载
+    excerpt: 100 #SEO用，权重
+  meta:
+    date: true
+    updated: false
+    locate: true
+    wordcount: true
+    readtime: true
+    pv: true
+    comment: true      
+  award:
+    enable: true
+    wechat: /img/reward/wechat.png
+    alipay: /img/reward/alipay.jpg
+    url:
+  covercolor: #文章cover取色 生成封面图片主色来作为文章封面颜色
+    enable: true #是否开启
+    local: true  #是否使用本地图片
+
+# 关于界面
+about: true
+
+# 404页面
+errorpage:
+  img: /img/B612.png
+  title: B612
+  subtitle: 欢迎来到 B612
+  buttonIcon: fas fa-rocket
+  recommendList: true
+
+# 懒加载
+lazyload:
+  enable: false
+  placeholder: /img/B612.png
+  errorimg: /img/B612.png
+
+# 图片灯箱
+lightbox: true
+
+#代码高亮增强
+hightlight:
+  enable: false
+  hightlimit: 200
+
+# 加载动画
+loading:
+  fullpage: false
+  pace: false
+
+# 第三方设置
+thirdparty:
+  wordcount: true
+  busuanzi: 
+    enable: true
+    usecomment: false #当评论系统开启时文章页面使用评论系统的统计数据
+  search:
+  # 下列搜索方式选择其一即可 切勿同时开启
+    algolia_search:
+      enable: false
+      hits:
+        per_page: 6
+    local_search:
+      enable: true
+      preload: false
+      CDN:
+    
+  aplayer:
+    enable: true
+    server: netease # tencent
+    id: 2237877699 # 1708664797
+
+# 评论
+comment:
+  enable: true
+  twikoo:
+    envId: https://twikoo-theta-sepia.vercel.app/
+    # region: ap-shanghai
+    path: window.location.pathname
+
+# 插入代码到头部 </head> 之前 和 底部 </body> 之前
+# 插入额外代码 如：统计，广告等
+extends: 
+  head: # 在head中插入
+    # - <script>
+    # </script>
+  body: # 在body中插入
+
+# 黑色模式粒子效果 canvas
+universe:
+  enable: true
+
+# 非必要勿动
+cdn:
+  head:
+    pacejs: https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js
+    fontawesomecss: https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css
+    snackbarcss: /lib/snackbar.min.css
+    qrcodejs: /lib/qrcode.min.js
+    twikoojs: https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js
+    instantsearch: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/instantsearch.js/4.39.0/instantsearch.production.min.js
+    algolia: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/algoliasearch/4.12.1/algoliasearch-lite.umd.min.js
+  body:
+    swipercss: /lib/swiper.min.css
+    pjaxjs: /lib/pjax.min.js
+    lazyloadjs: /lib/lazyload.min.js
+    snackbarjs: /lib/snackbar.min.js
+    viewimagejs: /lib/view-image.min.js
+    waterfalljs: /lib/waterfall.min.js
+    swiperjs: /lib/swiper.min.js
+    busuanzijs: https://npm.elemecdn.com/penndu@1.0.0/bsz.js
+    aplayercss: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css
+    aplayerjs: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js
+    metingjs: https://cdn1.tianli0.top/npm/meting@2.0.1/dist/Meting.min.js

@@ -1,0 +1,41 @@
+<!-- <meta>：元信息，提供有关文档的信息，如字符集、关键词、描述等 -->
+<!-- <title>：文档的标题，显示在浏览器的标签页上 -->
+<!-- <noscript>：用于在没有JavaScript支持的情况下提供替代内容 -->
+<!-- <link>：链接标签，用于定义文档和外部资源之间的关系，如样式表、图标等 -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%
+    var title = '', subtitle = ''
+    if(is_home()){title = config.title}
+    else if(is_archive())title = 'Archive ' + (page.year || '')
+    else if(is_category())title = 'Category ' + page.category
+    else if(is_tag())title = 'Tag ' + page.tag
+    else if(page.type === '404')title = '404 ' + theme.errorpage.text
+    else if(is_page() || is_post())title = page.title
+    if(is_home())subtitle = config.subtitle ? ' - ' + config.subtitle : ''
+    else subtitle = title ? ' | ' + config.title : config.title
+    var description = page.description || page.excerpt || config.description
+-%>
+<!-- 网页信息 -->
+<title><%= title + subtitle %></title>
+<meta name="apple-mobile-web-app-title" content="<%= config.title %>">
+<noscript>Please make sure Javascript enabled</noscript>
+<link rel="icon" type="image/x-icon" href="<%= url_for(theme.site.siteIcon) %>">
+<link rel="apple-touch-icon" href="<%= url_for(theme.site.siteIcon) %>">
+<link rel="bookmark" href="<%= url_for(theme.site.siteIcon) %>">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="<%= url_for(theme.site.siteIcon) %>">
+<meta name="description" content="<%= description %>">
+<meta name="theme-color" content="#1C1C1F">
+<!-- 网页资源 -->
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/universe.css">
+<%- partial('partial/compoment/inject/head', {cache: true}) %>
+<!-- 判断是否有扩展属性 extends.head，使用循环语句输出对应的 HTML 代码 -->
+<% if (theme.extends.head) for (const i of theme.extends.head){ %>
+    <%- i %>
+<% } %>
+<!-- 将Hexo配置信息导出为一个全局对象 -->
+<%- export_config() %>

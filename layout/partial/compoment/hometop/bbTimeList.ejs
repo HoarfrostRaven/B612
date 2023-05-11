@@ -1,0 +1,20 @@
+<% const imageText=__('bbBar.image'); %>
+<div class="bbTimeList container" id="bbTimeList">
+    <i class="bber-logo fa-regular fa-bell icon-bblogo" onclick="pjax.loadUrl('/says/')"></i>
+    <!-- swiper 容器，可以滚动显示最新动态 -->
+    <div class="swiper-container swiper-no-swiping swiper-container-initialized swiper-container-vertical swiper-container-pointer-events"
+        id="bbtalk" tabindex="-1" onclick="pjax.loadUrl('/says/')">
+        <div class="swiper-wrapper" id="bber-talk">
+            <!-- 根据站点数据（site.data）中的最新动态列表（essay.essay_list）进行遍历 -->
+            <% for(i in site.data.essay.essay_list){ %>
+                <!-- 设置当前遍历到的最新动态的信息，并且限制只展示前十条最新动态 -->
+                <% const item = site.data.essay.essay_list[i];if(i >= 10)break; %>
+                <div class="li-style swiper-slide">
+                    <!-- 最新动态的内容，如果存在图片，则内容末尾加上“【图片】” -->
+                    <%= item.image ? item.content + imageText : item.content %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <i class="bber-gotobb fas fa-arrow-circle-right" title="<%= __('bbBar.viewFullText') %>" onclick="pjax.loadUrl('/says/')"></i>
+</div>

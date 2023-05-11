@@ -1,0 +1,33 @@
+<div id="console" style="zoom: 1;" class="">
+    <!-- 用于关闭控制台的按钮 -->
+    <div class="close-btn" onclick="B612.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+
+    <div class="button-group">
+        <!-- 用于切换显示模式的开关 -->
+        <div class="console-btn-item"> 
+            <a class="darkmode_switchbutton" onclick="B612.switchDarkMode()" title="<%= __('console.switchDarkMode') %>"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state="">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+            </a>
+        </div>
+        <!-- 用于控制音乐播放 -->
+        <% if(theme.thirdparty.aplayer.enable){ %>            
+            <div class="console-btn-item" id="consoleMusic" onclick="B612.musicToggle()" title="<%= __('console.consoleMusic') %>">
+                <a class="music-switch">
+                    <i class="fas fa-music"></i>
+                </a>
+            </div>
+        <% } %>
+        <!-- 用于切换帧率显示 -->
+        <div class="console-btn-item" id="consoleFPS" onclick="B612.FPSToggle()" title="<%= __('console.consoleFPS') %>">
+            <a class="FPS-switch" data-pjax-state="">
+                <i class="fas fa-gauge"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- 用于在点击控制台外部时隐藏控制台 -->
+    <div class="console-mask" onclick="B612.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>

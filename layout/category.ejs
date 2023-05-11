@@ -1,0 +1,40 @@
+<main class="layout" id="content-inner">
+
+    <div id="category">
+        <div class="category-in-bar">
+
+            <!-- 分类条前面的提示 -->
+            <!-- <div class="category-in-bar-tips"><%= __('page.category') %></div> -->
+            <div class="article-sort-title">
+                <!-- 获取存档页面的标题文本 -->
+                <%= __('page.category') %>
+                    <sup>
+                        <!-- 存档页面的文章数量 -->
+                        <%= page.posts.length %>
+                    </sup>
+            </div>
+
+            <!-- 分类条 -->
+            <div id="category-bar" style="margin-left: 20px;">
+                <div class="category-bar-items" id="category-bar-items">
+                    <%- partial('partial/compoment/home/homeCategoryBar', {select:page.category}) %>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 当前分类 -->
+        <div class="article-sort-title"><%= page.category %></div>
+
+        <!-- 文章 -->
+        <div class="article-sort">
+            <%- partial('partial/compoment/mixins/articleSort') %>
+        </div>
+
+        <!-- 分页元素 -->
+        <%- partial('partial/compoment/mixins/pagination') %>    
+    </div>
+
+    <!-- 侧边栏 -->
+    <%- partial('partial/compoment/aside/aside') %> 
+</main>

@@ -1,0 +1,47 @@
+<nav id="nav" class="show">
+    <div id="nav-group">
+        
+        <div id="blog_name">
+            <!-- 左侧图标 -->
+            <% if(theme.nav.left.enable){ %>
+                <div class="back-home-button" tabindex="-1">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <!-- <i class="back-home-button-icon fas fa-grip-vertical"></i> -->
+                    <%- partial('partial/compoment/nav/left') %>
+                </div>
+            <% } %>
+            <!-- 返回主页按钮 -->
+            <a id="site-name" href="/" title="<%= __('nav.backToHomePage') %>">
+                <% if (theme.site.name.class === 'i_class') { %>
+                    <i class="<%= theme.site.name.custom %>" style="font-size: 25px;"></i>
+                    <% } else if (theme.site.name.class === 'img') { %>
+                    <i style="background-image: url('<%= url_for(theme.site.name.custom) %>')"></i>
+                    <% } else if (theme.site.name.class === 'text') { %>
+                    <span class="heoicon"><%= theme.site.name.custom %></span>
+                <% } %>
+            </a>
+        </div>
+        <!-- 页面不在顶部时出现的页面标题 -->
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="B612.toTop()"><%= page.title || config.title %></a>
+            </div>
+        </div>
+        <!-- 页面在顶部时出现的可选菜单 -->
+        <div id="menus">
+            <%- partial('partial/compoment/nav/menu') %>
+        </div>
+
+        <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div>
+                <span class="fpsText">FPS</span>
+            </div>
+        </div>
+        <!-- 导航栏右侧图标组 -->
+        <div id="nav-right">
+            <%- partial('partial/compoment/nav/right') %>
+        </div>
+
+    </div>
+</nav>

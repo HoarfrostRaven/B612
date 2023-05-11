@@ -1,0 +1,46 @@
+<div class="aside-content" id="aside-content">
+    <% 
+        var noSticky = [], Sticky = [];
+        if(is_home()){
+            if(theme.aside.home.noSticky) {
+                noSticky = theme.aside.home.noSticky.split(',') 
+            }
+            if(theme.aside.home.Sticky) {
+                Sticky = theme.aside.home.Sticky.split(',')
+            }
+        }
+        if(is_post()){
+            if(theme.aside.post.noSticky) {
+                noSticky = theme.aside.post.noSticky.split(',') 
+            }
+            if(theme.aside.post.Sticky) {
+                Sticky = theme.aside.post.Sticky.split(',')
+            }
+        }
+        if(is_page() || is_archive() || is_tag() || is_category()){
+            if(theme.aside.page.noSticky) {
+                noSticky = theme.aside.page.noSticky.split(',') 
+            }
+            if(theme.aside.page.Sticky) {
+                Sticky = theme.aside.page.Sticky.split(',')
+            }
+        }
+    %>
+    
+    <!-- 输出固定的模块 -->
+    <% if(noSticky)noSticky.forEach(item => { %>
+        <%- partial('partial/compoment/aside/asideSwitch', {item: item}) %>
+    <% }); %>
+
+    <div class="sticky_layout">
+        <!-- 输出目录 -->
+        <% if(page.toc){ %>
+            <%- partial('partial/compoment/aside/asideToc') %>
+        <% } %>
+        <!-- 输出随页面滚动的模块 -->
+        <% if(Sticky)Sticky.forEach(item => { %>
+            <%- partial('partial/compoment/aside/asideSwitch', {item: item}) %>
+        <% }); %>
+    </div>
+
+</div>
