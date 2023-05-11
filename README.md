@@ -1,5 +1,4 @@
-# Hexo-Theme-Acrylic-Next
-> 下一代Acrylic何必是butterfly
+# Hexo-Theme-B612
 
 ![封面图](https://tucdn.wpon.cn/2023/04/03/0c5c23ecf8a5e.jpg)
 
