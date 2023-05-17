@@ -29,17 +29,17 @@
     
     <!-- 输出固定的模块 -->
     <% if(noSticky)noSticky.forEach(item => { %>
-        <%- partial('partial/compoment/aside/asideSwitch', {item: item}) %>
+        <%- partial('partial/component/aside/asideSwitch', {item: item}) %>
     <% }); %>
 
     <div class="sticky_layout">
         <!-- 输出目录 -->
         <% if(page.toc){ %>
-            <%- partial('partial/compoment/aside/asideToc') %>
+            <%- partial('partial/component/aside/asideToc') %>
         <% } %>
         <!-- 输出随页面滚动的模块 -->
         <% if(Sticky)Sticky.forEach(item => { %>
-            <%- partial('partial/compoment/aside/asideSwitch', {item: item}) %>
+            <%- partial('partial/component/aside/asideSwitch', {item: item}) %>
         <% }); %>
     </div>
 

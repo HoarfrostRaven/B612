@@ -1,7 +1,7 @@
 <div id="home_top">
     <!-- 即刻说说 -->
     <% if(theme.hometop.bbtime){ %>
-        <%- partial('partial/compoment/hometop/bbTimeList') %>
+        <%- partial('partial/component/hometop/bbTimeList') %>
     <% } %>
     <!-- 技能商标面板、三分类、箴言卡片 -->
     <% if(theme.hometop.banner.enable){ %>
@@ -13,15 +13,15 @@
     <div class="recent-posts" id="recent-posts">
         <!-- 分类条 -->
         <div id="category-bar">
-            <%- partial('partial/compoment/home/homeCategoryBar', {select:false}) %>
+            <%- partial('partial/component/home/homeCategoryBar', {select:false}) %>
         </div>
         <!-- 文章 -->
         <% for (const item of page.posts.sort('-date').data){ %>
-            <%- partial('partial/compoment/home/postList', {post: item}) %>
+            <%- partial('partial/component/home/postList', {post: item}) %>
         <% } %>
         <!-- 分页元素 -->
-        <%- partial('partial/compoment/mixins/pagination') %>
+        <%- partial('partial/component/mixins/pagination') %>
     </div>
     <!-- 侧边栏 -->
-    <%- partial('partial/compoment/aside/aside') %> 
+    <%- partial('partial/component/aside/aside') %> 
 </main>

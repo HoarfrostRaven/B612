@@ -1,0 +1,32 @@
+<% switch (item) {
+    case 'about': %>
+        <%- partial('partial/component/aside/asideInfoCard', {cache: true}) %>
+    <% break;
+    case 'flip': %>
+        <%- partial('partial/component/aside/asideFlipCard', {cache: true}) %>
+    <% break;
+    case 'newestPost': %>
+        <%- partial('partial/component/aside/asideNewestPost', {cache: true}) %>
+    <% break;
+    case 'tag': %>
+        <div class="card-widget card-tags">
+            <%- partial('partial/component/aside/asideTag', {cache: true}) %>
+        </div>    
+    <% break;
+    case 'archive': %>
+        <div class="card-widget card-archives">
+            <%- partial('partial/component/aside/asideArchive', {cache: true}) %>
+        </div>
+    <% break;
+    case 'webInfo': %>
+        <div class="card-widget card-webinfo">
+            <%- partial('partial/component/aside/asideWebInfo', {cache: true}) %>
+        </div>
+    <% break;
+    case 'allInfo': %>
+        <%- partial('partial/component/aside/asideAllInfo', {cache: true}) %>
+    <% break;
+    default: %>
+        <%- partial('page/page') %>
+    <% break; 
+} %> 

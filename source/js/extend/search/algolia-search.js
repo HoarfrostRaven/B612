@@ -85,6 +85,7 @@ class search{
                 return `
                 <a href="${link}" class="algolia-hit-item-link">
                 ${result.title.value}
+                ${link}
                 </a>
                 <p class="algolia-hit-item-content">${content}</p>`
             },
@@ -137,5 +138,4 @@ window.addEventListener('load', () => {
 
 window.addEventListener('pjax:complete', () => {
   searchClickFn()
-  search.closeSearch()
 })

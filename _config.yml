@@ -10,7 +10,7 @@
 site:
   name:                   # 左上角显示内容
     class:  text          #i_class/text/img 
-    custom: Home       #自定义内容
+    custom: FrostRaven       #自定义内容
   siteIcon: /img/logo.png # 网页icon
   icon: /img/logo.png     # 页脚的icon、加载动画默认的icon
   icp:                       # ICP
@@ -224,22 +224,25 @@ footer:
       #   url: /
 
   group:
-    # 导航:
-    #   文章归档: /archives/ #名称和链接
-    #   文章分类: /categories/
-    #   文章标签: /tags/
-    #   友链: /link/
-    # 服务:
-    #   51la统计: https://51.la/
-    #   百度统计: https://tongji.baidu.com/
-    #   TianliCDN: https://ql.tianli0.top/
-    # Acrylic:
-    #   主题官网: https://acrylic.zhheo.com/
-    #   Github: https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic
-    #   Heo: https://blog.zhheo.com/
-    # 推荐友链:
-    #   Heo: https://blog.zhheo.com/
-    #   Akilar: https://akilar.top
+    enable: true
+    # 导航列表
+    list:
+      # 导航:
+      #   文章归档: /archives/ #名称和链接
+      #   文章分类: /categories/
+      #   文章标签: /tags/
+      #   友链: /link/
+      # 服务:
+      #   51la统计: https://51.la/
+      #   百度统计: https://tongji.baidu.com/
+      #   TianliCDN: https://ql.tianli0.top/
+      # Acrylic:
+      #   主题官网: https://acrylic.zhheo.com/
+      #   Github: https://github.com/hexo-theme-Acrylic/Hexo-Theme-Acrylic
+      #   Heo: https://blog.zhheo.com/
+      # 推荐友链:
+      #   Heo: https://blog.zhheo.com/
+      #   Akilar: https://akilar.top
 
   randomlink: false # 开启页脚随机友链
 
@@ -256,7 +259,7 @@ post:
     cover: /img/hello.jpg
     locate: Paris
     copyright: Original #原创/转载
-    excerpt: 100 #SEO用，权重
+    # excerpt: 100 #SEO用，权重
   meta:
     date: true
     updated: false
@@ -271,7 +274,7 @@ post:
     alipay: /img/reward/alipay.jpg
     url:
   covercolor: #文章cover取色 生成封面图片主色来作为文章封面颜色
-    enable: true #是否开启
+    enable: false #是否开启
     local: true  #是否使用本地图片
 
 # 关于界面

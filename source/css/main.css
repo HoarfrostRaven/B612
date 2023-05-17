@@ -4299,15 +4299,42 @@ html {
     opacity: 1;
     transition: 0.3s;
     overflow: hidden;
+    color: var(--heo-fontcolor);
+    padding: 0;
+    display: flex;
+    height: 35px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    text-shadow: none;
+    border-radius: 40px;
+    position: relative;
   }
 
   #nav #site-name i {
-    transition: 0.3s;
+    transform: scale(0);
+    transition: .2s ease-in;
   }
 
   #nav #site-name:hover i {
-    opacity: 0;
-    transition: 0.3s;
+    transform: scale(0.3);
+    transition: .2s ease-out;
+  }
+
+  #nav #site-name:after {
+    content: "";
+    background: url(/img/theme/home.png) no-repeat 50% 50%;
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    width: 74px;
+    height: 58px;
+    transform: scale(0);
+    transition: .2s ease-in;
+  }
+
+  #nav #site-name:hover:after {
+    transform: scale(0.3);
   }
 
   #page-header.nav-fixed #nav #site-name {
@@ -4321,32 +4348,12 @@ html {
     transition: 0.1s;
   }
 
-  #nav #site-name:after {
-    background: url(/img/theme/home.png) no-repeat 50% 50%;
-    opacity: 0;
-    position: absolute;
-    display: flex;
-    z-index: 1;
-    width: 74px;
-    height: 58px;
-    content: "";
-    transition: 0s;
-    transition-timing-function: ease-in;
-    transform: scale(0.4);
-  }
-
   .post #nav #site-name:hover {
     background: var(--heo-main);
   }
 
   .nav-fixed #nav #site-name:hover {
     background: var(--heo-main);
-  }
-
-  #nav #site-name:hover:after {
-    opacity: 1;
-    transform: translateY(0px) scale(0.3);
-    transition-timing-function: ease-in;
   }
 
   #nav .back-home-button:hover {
@@ -5181,19 +5188,6 @@ a.console_switchbutton {
 .post-bg #nav #site-name {
   color: var(--heo-white);
   transition: 0s;
-}
-
-#nav #site-name {
-  color: var(--heo-fontcolor);
-  padding: 0;
-  transition: 0.3s;
-  display: flex;
-  height: 35px;
-  width: 75px;
-  justify-content: center;
-  align-items: center;
-  text-shadow: none;
-  border-radius: 40px;
 }
 
 /* 搜索 */
@@ -11422,7 +11416,7 @@ figure.gallery-group:hover .gallery-group-name::after {
   }
 }
 
-.footer-banner-right {
+.footer-section-right {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -12256,7 +12250,7 @@ a.bb-link-info:hover {
   font-size: 0.8rem;
 }
 
-#footer-banner {
+#footer-section {
   padding: 1rem;
   color: var(--heo-fontcolor);
   margin-top: 1rem;
@@ -12267,7 +12261,7 @@ a.bb-link-info:hover {
   transition: 0.3s;
 }
 
-#footer-banner .footer-banner-links {
+#footer-section .footer-section-links {
   display: flex;
   justify-content: space-between;
   max-width: 1400px;
@@ -12277,13 +12271,13 @@ a.bb-link-info:hover {
   align-items: center;
 }
 
-#footer-banner .footer-banner-left {
+#footer-section .footer-section-left {
   display: flex;
   flex-wrap: wrap;
   min-height: 32px;
 }
 
-#footer-banner .footer-banner-link {
+#footer-section .footer-section-link {
   margin-right: 1rem;
   color: var(--heo-fontcolor);
   font-size: 0.8rem;
@@ -12291,23 +12285,23 @@ a.bb-link-info:hover {
   white-space: nowrap;
 }
 
-#footer-banner .footer-banner-link.cc {
+#footer-section .footer-section-link.cc {
   margin-right: 0rem;
 }
 
-#footer-banner .footer-banner-link.cc i {
+#footer-section .footer-section-link.cc i {
   margin-right: 0.5rem;
 }
 
-#footer-banner .footer-banner-link:hover {
+#footer-section .footer-section-link:hover {
   color: var(--heo-theme);
 }
 
-#footer-banner>div>div.footer-banner-left>span {
+#footer-section>div>div.footer-section-left>span {
   margin-right: 1rem;
 }
 
-#footer-banner .footer-banner-right a:hover {
+#footer-section .footer-section-right a:hover {
   color: var(--heo-lighttext);
 }
 
@@ -12498,6 +12492,7 @@ a.bb-link-info:hover {
 
 .author-content-item.single {
   width: 100%;
+  overflow: visible;
 }
 
 .author-content-item .author-content-item-title {

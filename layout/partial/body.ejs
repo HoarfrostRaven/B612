@@ -1,13 +1,15 @@
 <div>
+    <!-- 引入 JavaScript 文件 -->
     <script type="text/javascript" src="/js/utils.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    <%- partial('partial/compoment/inject/body', {cache: true}) %>
-    <%- partial('partial/compoment/third-party/pjax', {cache: true}) %>
-    
+    <!-- 模板片段 -->
+    <%- partial('partial/component/inject/body', {cache: true}) %>
+    <%- partial('partial/component/third-party/pjax', {cache: true}) %>
+    <!-- 用于插入一些自定义的 HTML 或 JavaScript 代码，以扩展网站的功能或者样式 -->
     <% if (theme.extends.body) for (const i of theme.extends.body){ %>
         <%- i %>
     <% } %>
-
+    <!-- 用于渲染宇宙背景效果 -->
     <% if (theme.universe.enable){ %>
         <canvas id="universe"></canvas>
         <script type="text/javascript" src="/js/universe.js"></script>

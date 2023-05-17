@@ -6,10 +6,10 @@
         <div class="post-tools" id="post-tools">
             <div class="post-tools-left">
                 <% if (theme.post.award.enable) {%>
-                    <%- partial('partial/compoment/post/award', {cache: true}) %>
+                    <%- partial('partial/component/post/award', {cache: true}) %>
                 <% } %>
-                <%- partial('partial/compoment/post/qrcode') %>
-                <%- partial('partial/compoment/post/share') %>
+                <%- partial('partial/component/post/qrcode') %>
+                <%- partial('partial/component/post/share') %>
             </div>
             <div class="post-tools-right">
                 <div class="tag_share">
@@ -25,11 +25,11 @@
                 </div>
             </div>
         </div>
-        <%- partial('partial/compoment/post/copyright') %>
-        <%- partial('partial/compoment/post/postNav') %>
+        <%- partial('partial/component/post/copyright') %>
+        <%- partial('partial/component/post/postNav') %>
         <% if(page.comment){ %>
-            <%- partial('partial/compoment/third-party/comments/comment') %>
+            <%- partial('partial/component/third-party/comments/comment') %>
         <% } %>    
     </div>
-    <%- partial('partial/compoment/aside/aside') %> 
+    <%- partial('partial/component/aside/aside') %> 
 </main>

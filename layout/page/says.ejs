@@ -1,13 +1,13 @@
-<%- partial('partial/compoment/says/banner') %>
+<%- partial('partial/component/says/banner') %>
 <div id="bber">
     <section class="timeline page-1">
         <ul class="list" id="waterfall">
             <% for(i in site.data.essay.essay_list){ %>
                 <% const item = site.data.essay.essay_list[i];if(i >= 30)break; %>
                 <li class="item">
-                    <%- partial('partial/compoment/says/saysContent', {item:item}) %>
+                    <%- partial('partial/component/says/saysContent', {item:item}) %>
                     <hr>
-                    <%- partial('partial/compoment/says/saysBottom', {item:item}) %>
+                    <%- partial('partial/component/says/saysBottom', {item:item}) %>
                 </li>
             <% }; %>
         </ul>

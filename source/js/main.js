@@ -118,7 +118,7 @@ const chageTimeFormate = () => {
         } else if (daysDiff === 1) {
             timeString = lang.yesterday;
         } else if (daysDiff === 2) {
-            timeString = lang.berforeyesterday;
+            timeString = lang.berforeYesterday;
         } else if (daysDiff <= 7) {
             timeString = daysDiff + lang.daybefore;
         } else {
@@ -133,26 +133,45 @@ const chageTimeFormate = () => {
 }
 
 const percent = () => {
-    let a = document.documentElement.scrollTop || window.pageYOffset,
-        b = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight) - document.documentElement.clientHeight, // 整个网页高度
-        result = Math.round(a / b * 100),
-        btn = document.querySelector("#percent");
-    const visibleBottom = window.scrollY + document.documentElement.clientHeight;
+    // 获取当前滚动条位置
+    const scrollTop = document.documentElement.scrollTop || window.pageYOffset;
+    // 获取文档根节点
+    const docElem = document.documentElement;
+    // 获取文档body节点
+    const body = document.body;
+    // 获取文档body高度
+    const bodyScrollHeight = body.scrollHeight;
+    // 获取文档根节点高度，取最大值
+    const docScrollHeight = Math.max(docElem.scrollHeight, docElem.offsetHeight, bodyScrollHeight, body.clientHeight, docElem.clientHeight);
+    // 计算当前滚动位置百分比
+    const percentResult = Math.round(scrollTop / (docScrollHeight - docElem.clientHeight) * 100);
+    // 获取百分比按钮节点
+    const percentBtn = document.querySelector("#percent");
+    // 获取“返回顶部”按钮节点
+    const navTotop = document.querySelector("#nav-totop");
+    // 获取需要隐藏的元素节点
+    const needEndHide = document.querySelectorAll(".needEndHide");
+
+    // 计算可视区域底部位置
+    const visibleBottom = window.scrollY + docElem.clientHeight;
+    // 获取事件监听器节点
     const eventlistner = document.getElementById('post-tools') || document.getElementById('footer');
+    // 计算事件监听器垂直中心位置
     const centerY = eventlistner.offsetTop + (eventlistner.offsetHeight / 2);
-    if ((centerY < visibleBottom) || (result > 90)) {
-        document.querySelector("#nav-totop").classList.add("long");
-        btn.innerHTML = GLOBALCONFIG.lang.backtop;
-        document.querySelectorAll(".needEndHide").forEach(item => {
-            item.classList.add("hide")
-        })
+
+    const text = GLOBALCONFIG.lang.theme.light;
+    // 如果事件监听器中心位置小于可视区域底部位置或者滚动位置百分比大于90，则显示“返回顶部”按钮和需要隐藏的元素，并隐藏百分比按钮
+    if (centerY < visibleBottom || percentResult > 90) {
+        navTotop.classList.add("long");
+        // percentBtn.innerHTML = GLOBALCONFIG.lang.nav.end;
+        percentBtn.innerHTML = "End";
+        needEndHide.forEach(item => item.classList.add("hide"));
     } else {
-        document.querySelector("#nav-totop").classList.remove("long");
-        if (result >= 0) {
-            btn.innerHTML = result;
-            document.querySelectorAll(".needEndHide").forEach(item => {
-                item.classList.remove("hide")
-            })
+        // 否则隐藏“返回顶部”按钮和需要隐藏的元素，显示百分比按钮
+        navTotop.classList.remove("long");
+        if (percentResult >= 0) {
+            percentBtn.innerHTML = percentResult;
+            needEndHide.forEach(item => item.classList.remove("hide"));
         }
     }
 }
@@ -435,7 +454,7 @@ window.refreshFn = () => {
     GLOBALCONFIG.lightbox && B612.lightbox('#article-container img, #bber .bber-content-img img, #album_detail album-content-img img')
     GLOBALCONFIG.randomlinks && randomLinksList()
     PAGECONFIG.toc && toc.init()
-    if (PAGECONFIG.is_post) {
+    if (PAGECONFIG.is_post || PAGECONFIG.is_page) {
         GLOBALCONFIG.hightlight.enable && hightlight.init()
         tabs.init()
     }

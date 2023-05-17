@@ -9,7 +9,7 @@ copy:
 time:
   recent: 最近
   yesterday: 昨天
-  berforeyesterday: 前天
+  berforeYesterday: 前天
   daybefore: 天前
   runtime:  天
 
@@ -34,9 +34,10 @@ nav:
   backtop: 返回顶部
   travellings: 开往-友链接力
   search: 搜索
-  randompost: 随机一篇文章
+  randomPost: 随机一篇文章
   console: 中控台
   backToHomePage: 返回博客主页
+  end: 结束
 
 search:
   empty: 搜索结果为空
@@ -60,3 +61,19 @@ homeTop:
   randomPost: 随便逛逛
   recommendList: 更多推荐
   rec: 荐
+
+postmeta:
+  original: 该文章为 %s 文章，注意版权协议
+  posted: 发布于
+  updated: 更新于
+  locate: 作者 IP 归属地为 %s
+  wordCount: 文章字数
+  readTime: 阅读耗时
+  readNum: 浏览量
+  commentNum: 评论数
+
+footer:
+  backTop: 返回顶部
+  friends: 友情链接
+  subscribe: 订阅
+  licenses: cc 协议
