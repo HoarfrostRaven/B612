@@ -1,0 +1,78 @@
+theme:
+  dark: Switched to dark mode
+  light: Switched to light mode
+
+copy:
+  success: Copy successful
+  error: Copy failed
+
+time:
+  recent: Recent
+  yesterday: Yesterday
+  beforeYesterday: Day before yesterday
+  dayBefore: days ago
+  runtime: days
+
+sayhello:
+  morning: Good morning
+  noon: Good noon
+  afternoon: Good afternoon
+  night: Good evening
+  goodnight: Goodnight
+  iam: '! I am'
+
+page:
+  tag: Tags
+  category: Categories
+  archives: Articles
+
+categoryBar:
+  home: Home
+  more: More
+
+nav:
+  backtop: Back to top
+  travellings: Travellings
+  search: Search
+  randomPost: Random Post
+  console: Console
+  backToHomePage: Back to Blog Homepage
+  end: End
+
+search:
+  empty: No results found
+  hit: Found ${query} results for you
+  placeholder: Enter keywords to search
+
+bbBar:
+  viewFullText: View full text
+  image: /[Image/]
+
+console:
+  switchDarkMode: Toggle display mode
+  consoleMusic: Music
+  consoleFPS: FPS display switch
+
+errorPage:
+  backToHomePage: Back to Earth
+
+homeTop:
+  randomPost: Explore randomly
+  recommendList: More recommendations
+  rec: Rec
+
+postmeta:
+  original: This article is a %s article, pay attention to the copyright agreement
+  posted: Posted on
+  updated: Updated on
+  locate: Author IP location is %s
+  wordCount: Word count
+  readTime: Reading time
+  readNum: Views
+  commentNum: Comments
+
+footer:
+  backTop: Back to top
+  friends: Friends
+  subscribe: Subscribe
+  licenses: CC License

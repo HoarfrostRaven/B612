@@ -1,8 +1,12 @@
-@media screen and (min-width: 900px){
-    #page-header #nav a:hover .heoicon{
-        transition: .3s;
-        opacity: 0;
-    }
+.heoicon {
+  transition: .2s ease-in;
+  padding: 0 2px;
+}
+
+@media screen and (min-width: 900px) {
+  #page-header #nav a:hover .heoicon {
+    transform: scale(0);
+  }
 }
 
 #sidebar-menus .menus_item .not-child{

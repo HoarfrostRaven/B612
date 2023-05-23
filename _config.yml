@@ -152,13 +152,13 @@ hometop:
 # 个人卡片
 aside:
   home: #首页侧边栏
-    noSticky: "about,flip" #不固定的侧边栏，固定在（目录）页面上方
+    noSticky: "about" #不固定的侧边栏，固定在（目录）页面上方
     Sticky: "newestPost,allInfo" #固定的侧边栏，放在目录下方，随页面滚动而移动
   post: #文章页侧边栏
     noSticky: "about"
     Sticky: "newestPost"
   page: #页面侧边栏
-    noSticky: "about,flip"
+    noSticky: "about"
     Sticky: "newestPost,allInfo"
 
   card:

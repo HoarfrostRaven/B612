@@ -1,10 +1,10 @@
 <% if(theme.thirdparty.search.local_search.enable){ %>
-    <%- partial('partial/component/third-party/search/local-search') %>
-    <%- css('/css/search/local-search.css') %>
-    <%- js('/js/extend/search/local-search.js') %>
+    <%- partial('partial/component/third-party/search/local-search') %> <!-- 加载本地搜索组件 -->
+    <%- css('/css/search/local-search.css') %> <!-- 加载本地搜索的样式表 -->
+    <%- js('/js/extend/search/local-search.js') %> <!-- 加载本地搜索的 JavaScript 文件 -->
 <% } %>
 <% if(theme.thirdparty.search.algolia_search.enable){ %>
-    <%- partial('partial/component/third-party/search/algolia-search') %>
-    <%- css('/css/search/algolia-search.css') %>
-    <%- js('/js/extend/search/algolia-search.js') %>
-<% } %>     
+    <%- partial('partial/component/third-party/search/algolia-search') %> <!-- 加载Algolia搜索组件 -->
+    <%- css('/css/search/algolia-search.css') %> <!-- 加载Algolia搜索的样式表 -->
+    <%- js('/js/extend/search/algolia-search.js') %> <!-- 加载Algolia搜索的 JavaScript 文件 -->
+<% } %>
